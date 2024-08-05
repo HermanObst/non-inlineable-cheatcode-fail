@@ -11,7 +11,8 @@ contract testFail is Test {
            abi.encodeWithSignature("zkVm(bool)", false)
        );
        
-       address(vm).call(abi.encodeWithSignature("writeFile(string,string)", './herman.txt' ,"PAPUNO")); // This works as is a low level call
+       address(vm).call(abi.encodeWithSignature("writeFile(string,string)", './herman.txt' ,"LOW LEVEL")); // This works as is a low level call
        assert(address(vm).codehash != 0); // This shows cheatcode address dont have code.
+       vm.writeFile('./herman.txt' ,"HIGH LIVEL PASSING"); // Passing with eb21bc27
     }
 }
